@@ -34,7 +34,7 @@ public class DisckScript : MonoBehaviour
         CombatScript disc = collision.collider.GetComponent<CombatScript>();
         if (disc != null)
         {
-            disc.catchDisc();
+            //disc.catchDisc();
             Destroy(gameObject);
         }
     }

@@ -5,15 +5,10 @@ using UnityEngine.UI;
 
 public class CombatScript : MonoBehaviour
 {
-    public GameObject disckPrefab;
+    public Animator animator;
+    public LayerMask destrucktableLayers;
 
     public Transform meleePoint;
-    public LayerMask destrucktableLayers;
-    public Transform throwPoint;
-
-    public float ThrowRate = 2f;
-    float nextThrowTime = 0f;
-
     public float attackRange = 0.5f;
     public int meleeDamage = 1;
     public float MeleeAttackRate = 2f;
@@ -21,35 +16,21 @@ public class CombatScript : MonoBehaviour
 
     void Start()
     {
-        
+       
     }
 
     void Update()
     {
-        if (Time.time >= nextThrowTime) 
+        if (Time.time >= nextAttackTime)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                Throw();
-
-                nextThrowTime = Time.time + 1f / ThrowRate;
-            }
-        }
-
-        if (Time.time >= nextAttackTime)
-        {
-            if (Input.GetKeyDown(KeyCode.Mouse1))
-            {
+                animator.SetTrigger("AttackPunch");
                 Melee();
 
                 nextAttackTime = Time.time + 1f / MeleeAttackRate;
             }
         }
-    }
-
-    void Throw() 
-    {
-        Instantiate(disckPrefab, throwPoint.position, throwPoint.rotation);
     }
 
     void Melee()
@@ -60,11 +41,6 @@ public class CombatScript : MonoBehaviour
         {
             enemy.GetComponent<Enemy>().TakeDamage(meleeDamage);
         }
-    }
-
-    public void catchDisc()
-    {
-        nextThrowTime = Time.time;
     }
 
     private void OnDrawGizmosSelected()

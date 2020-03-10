@@ -39,7 +39,7 @@ public class CombatScript : MonoBehaviour
 
         foreach (Collider2D enemy in hitObjects)
         {
-            enemy.GetComponent<Enemy>().TakeDamage(meleeDamage);
+            enemy.GetComponent<EnemyBehavior>().TakeDamage(meleeDamage);
         }
     }
 

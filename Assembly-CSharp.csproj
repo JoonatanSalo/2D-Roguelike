@@ -63,13 +63,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Enemy.cs" />
+    <Compile Include="Assets\EnemyBehavior.cs" />
     <Compile Include="Assets\Laser.cs" />
     <Compile Include="Assets\Scripts\CharacterController2D.cs" />
     <Compile Include="Assets\Scripts\CombatScript.cs" />
     <Compile Include="Assets\Scripts\CompleteCameraController.cs" />
-    <Compile Include="Assets\Scripts\DisckScript.cs" />
     <Compile Include="Assets\Scripts\Electric_Cabinet_Script.cs" />
-    <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\EnergyManager.cs" />
     <Compile Include="Assets\Scripts\guiDisc.cs" />
     <Compile Include="Assets\Scripts\ObstacleScript.cs" />
